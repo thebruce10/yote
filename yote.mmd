@@ -1,0 +1,83 @@
+---
+title: Yote
+---
+
+flowchart TD
+    subgraph main
+        1A((Begin)) --> 1B[[Create Board]]
+        1B --> 1C[Give each\nplayer 12 tokens.]
+
+        1C --> 1D[Set the turn\nto white.]
+        1D --> 1E[[Take Turn]]
+        1E --> 1F{Is\nthere any\nremaining pieces\nof the\nopponent?}
+
+            1F --> |YES| 1G{Are\nthere less\nthan 3 pieces\nleft for both\nplayers?}
+
+                1G --> |YES| 1H{Do\nthe players\nwant to\ndraw?}
+
+                    1H --> |YES| 1I[Draw.]
+                    1I --> 1J((End))
+
+                    1H --> |NO| 1K[Next turn.]
+                    1K --> 1E
+                
+                1G --> |NO| 1K
+            
+            1F --> |NO| 1L[Player wins.]
+            1L --> 1J
+
+    end
+
+    subgraph Take Turn
+        2A((Begin)) --> 2B[Select a square.]
+        2B --> 2C{Is\nthe square\nempty?}
+
+            2C --> |YES| 2D{Does\nthe player\nhave any tokens\nleft?}
+
+                2D --> |YES| 2E[Place a token]
+                2E --> 2M
+
+                2D --> |NO| 2B
+            
+            2C --> |NO| 2F{Is\nthe square\nan opponents\ntoken?}
+
+                2F --> |YES| 2B
+
+                2F --> |NO| 2G[[Highlight Legal Moves]]
+                2G --> 2H[Select a square.]
+                2H --> 2I{Is\nit a legal\nmove?}
+                
+                    2I --> |YES| 2J{Is\nit a\njump?}
+
+                        2J --> |YES| 2K[Jump over\nthe piece.]
+                        2K --> 2L[Remove the\njumped piece.]
+                        2L --> 2O[Select an opponents\npiece to remove]
+                        2O --> 2M((End))
+
+                        2J --> |NO| 2N[Move the piece\nto the square.]
+                        2N --> 2M
+
+                    2I --> |NO| 2H
+                
+                
+    end
+
+    subgraph Highlight Legal Moves
+        3A((Begin)) --> 3B{Are\nthere any\nempty othogonally\nadjacent\nsquares?}
+
+            3B --> |YES| 3C[Mark the squares\nas legal moves.]
+            3C --> 3D((End))
+        
+            3B --> |NO| 3E{Are\nthere any\nenemy pieces\nothogonally adjacent\nwith an empty\npiece beind\nthem?}
+
+                3E --> |YES| 3F[Mark the squares\nas legal jumps.]
+                3F --> 3D
+
+                3E --> |NO| 3D
+        
+    end
+
+    subgraph Create Board
+        4A((Begin)) --> 4B[Create a\n5x6 grid.]
+        4B --> 4C((End))
+    end

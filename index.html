@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yoté</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="gameArea">
+
+        <div class="boardArea">
+            <div class="boardBorder">
+                <canvas id="canvas" width="500px" height="600px"></canvas>
+            </div>
+            
+        </div>
+
+        <div class="sideArea">
+
+            <div class="panel gameInfo">
+                <p><span id="message">Loading...</span></p>
+                <p>White Hand: <span id="whiteHand">Loading...</span></p>
+                <p>Black Hand: <span id="blackHand">Loading...</span></p>
+                <button id="drawButton" disabled>Draw</button>
+            </div>
+
+            <div class="panel instructions">
+                <h1>Yoté</h1>
+
+                <p>
+                    Instructions:<br>
+                    <br>
+                    Each player starts with 12 tokens in hand and players alternate turns, with white going first.<br>
+                    On a turn a player may either:<br>
+                </p>
+
+                <ul>
+                    <li>Place a token in an empty space.</li>
+                    <li>Move one of their tokens orthogonally to an empty adjacent cell.</li>
+                    <li>
+                        Capture an opponents orthogonally adjacent token by jumping over it into the empty cell immediately beyond it. Remove the captured token and choose another of the opponents tokens to remove.
+                    </li>
+                </ul>
+
+                <p>
+                    The player who captures all the opponents tokens is the winner. If both players have less than 3 tokens left, they may agree to end the game in a draw.
+                </p>
+
+
+
+
+
+            </div>
+            
+        </div>
+               
+
+
+
+    </div>
+
+
+    <script src="index.js" type="module"></script>
+</body>
+</html>

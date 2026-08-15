@@ -1,0 +1,158 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+* {
+    transition: background-color 0.1s ease-in-out;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    background-color: #12121C;
+    color: #FFF;
+    accent-color: #7171FF;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+
+    background-color: #12121C;
+    background-image: radial-gradient(#242438 5px, transparent 5px, transparent 10px, #242438 10px, #242438 15px, transparent 15px);
+    background-size: 30px 30px;
+
+}
+
+
+
+button {
+    height: 30px;
+    width: 150px;
+    color: #FFF;
+    background-color: #121212;
+    border: 1px solid #FFF;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 17px;
+}
+
+button:hover {
+    background-color: #242438;
+}
+
+button:active {
+    background-color: #000;
+}
+
+button:disabled {
+    background: repeating-linear-gradient(
+    45deg,
+    #121212,
+    #121212 20px,
+    #242424 20px,
+    #242424 40px
+    );
+    cursor: not-allowed;
+    color: #A9A9A9;
+}
+
+.gameArea {
+    align-self: center;
+    padding: 30px;
+    border: 1px solid #A9A9C7;
+    height: 75vh;
+    width: 75vw;
+    overflow: hidden;
+
+    background-image: url("images/wood_texture.jpg");
+    background-size: cover;
+
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+
+    .boardArea {
+        height: 100%;
+        border: 1px solid #A9A9C7;
+        width: auto;
+
+        canvas {
+            display: block;
+            height: 100%;
+            width: auto;
+        }
+
+        .boardBorder {
+            display: block;
+            height: 100%;
+            width: auto;
+            border: 30px solid #3b270d;
+        }
+    }
+
+    .sideArea {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        flex-grow: 1;
+        height: 100%;
+
+        .panel {
+            padding: 30px;
+            border: 1px solid #A9A9C7;
+            background-color: #3b270d;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        h1 {
+            padding: 10px;
+            font-size: 28px;
+        }
+
+        p {
+            padding: 10px;
+        }
+
+        ul {
+            padding-left: 30px;
+        }
+
+        .gameInfo {
+            height: min-content;
+
+            #drawButton {
+                margin: 10px;
+            }
+
+            p {
+                display: block;
+            }
+
+        }
+
+        .instructions {
+            overflow: auto;
+            flex-grow: 1;
+        }
+
+
+
+
+    }
+
+    
+}
